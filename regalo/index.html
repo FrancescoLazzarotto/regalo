@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indovinello</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+        }
+
+        h1 {
+            margin-top: 100px;
+            color: #ffff;
+            font-size: 1.5em;
+            padding-left: 10%;
+            padding-right: 10%;
+            margin-bottom: 10%;
+        }
+        h2 {
+            color: #ffff;
+        }
+        ul {
+            color: white;
+            text-align: left;
+        }
+
+        input {
+            margin-top: 50px;
+            font-size: 20px;
+            
+        }
+        p {color: black;}
+input[type="text"] {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    font-size: 18px;
+}
+
+button {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+.closeButton {
+    float: right;
+    margin-top: -15px;
+    margin-right: -15px;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+    </style>
+</head>
+<script>function showHelp() {
+        document.getElementById("helpBox").style.display = "block";
+    }
+
+    function hideHelp() {
+        document.getElementById("helpBox").style.display = "none";
+    }
+    function showHelp1() {
+            document.getElementById("helpBox1").style.display = "block";
+        }
+
+        function hideHelp1() {
+            document.getElementById("helpBox1").style.display = "none";
+        }
+          function showHelp2() {
+                document.getElementById("helpBox2").style.display = "block";
+            }
+
+            function hideHelp2() {
+                document.getElementById("helpBox2").style.display = "none";
+            }
+        </script>
+<body>
+    <h1>Benvenuta al tuo regalo di natale...</h1>
+    <h1>Indovina la parola che stavo pensando mentre ti facevo il regalo</h1>
+    <ul>
+        <li><button onclick="showHelp()">Mostra aiuto 1</button>
+        <div id="helpBox"
+            style="display: none; background-color: white; border: 1px solid black; padding: 10px; width: 300px; position: absolute;">
+            <p>E' bianca ma non fa schiuma</p>
+            <button onclick="hideHelp()">Chiudi</button>
+        </div></li>
+        <li><button onclick="showHelp1()">Mostra aiuto 2</button>
+            <div id="helpBox1"
+                style="display: none; background-color: white; border: 1px solid black; padding: 10px; width: 300px; position: absolute;">
+                <p>Inizia con la lettera A e finisce con la lettera 'Scopami'</p>
+                <button onclick="hideHelp1()">Chiudi</button>
+            </div>
+        </li>
+        <li><button onclick="showHelp2()">Mostra aiuto 3</button>
+            <div id="helpBox2"
+                style="display: none; background-color: white; border: 1px solid black; padding: 10px; width: 300px; position: absolute;">
+                <p>È un enigma che il cuore comprende senza bisogno di spiegazioni. È un viaggio senza meta, una danza senza musica. Inizia
+                con una lettera, ma il suo significato abbraccia l'intero alfabeto delle emozioni</p>
+                <button onclick="hideHelp2()">Chiudi</button>
+            </div>
+        </li>
+    </ul>
+    <input type="text" id="userInput" placeholder="Inserisci la tua risposta"> <br>
+    <button onclick="checkAnswer()">Prova</button>
+    <h2 id="result"></h2>
+    <script>
+        let secretWord = 'amore';
+        let tries = 0;
+
+        function checkAnswer() {
+            let userInput = document.getElementById('userInput').value;
+            tries++;
+            if (userInput.toLowerCase() === secretWord) {
+                 const resultElement = document.getElementById('result');
+                resultElement.innerHTML =
+                document.getElementById('result').textContent = `Complimenti! Sei troppo Sveglia! Ecco il tuo: <a href="https://www.starsbox.it"> regalo </a>`;
+                document.getElementById('userInput').value = '';
+            } else {
+                document.getElementById('result').textContent = 'Mi dispiace, ma hai sbagliato. Sei una tarda!';
+                document.getElementById('userInput').value = '';
+            }
+        }
+    </script>
+</body>
+
+</html> 
